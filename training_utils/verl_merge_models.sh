@@ -1,4 +1,4 @@
-export YOUR_RUN_NAME="verl_gsm8k_init_training"
+export YOUR_RUN_NAME="verl_gsm8k_init_training_v2"
 export YOUR_PROJECT_NAME="init_training"
 
 python3 -m verl.model_merger merge \

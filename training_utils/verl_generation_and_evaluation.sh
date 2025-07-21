@@ -9,10 +9,12 @@ N_SAMPLES=1
 nnodes=1
 n_gpus_per_node=1
 
-# CHECKPOINT="global_step_435" 
-# CHECKPOINT_PATH="/home/nfs06/chenyq/Code-Utils/training_utils/checkpoints/init_training/verl_gsm8k_init_training/$CHECKPOINT"
-# MODEL_PATH="$CHECKPOINT_PATH/actor/huggingface"
-MODEL_PATH="/home/nfs05/model/Qwen2.5-0.5B-Instruct"
+CHECKPOINT="global_step_435" 
+TRAINING_SETTING="verl_gsm8k_init_training_v2" # verl_gsm8k_init_training
+SAVE_SUFFIX=gsm8k_responses_ppo_v2
+CHECKPOINT_PATH="/home/nfs06/chenyq/Code-Utils/training_utils/checkpoints/init_training/$TRAINING_SETTING/$CHECKPOINT"
+MODEL_PATH="$CHECKPOINT_PATH/actor/huggingface"
+# MODEL_PATH="/home/nfs05/model/Qwen2.5-0.5B-Instruct"
 
 WORK_DIR="/home/nfs06/chenyq/Code-Utils/training_utils"
 GENERATION_RESULT_DIR="$WORK_DIR/evaluation_results/generation_res"
@@ -22,10 +24,10 @@ mkdir -p $GENERATION_RESULT_DIR
 mkdir -p $EVAL_RESULT_DIR
 mkdir -p $RESULT_DIR
 
-GENERATION_RESPONSES=$GENERATION_RESULT_DIR/gsm8k_responses.parquet
+GENERATION_RESPONSES=$GENERATION_RESULT_DIR/$SAVE_SUFFIX.parquet
 
 TIMESTAMP=$(date +"%Y%m%d_%H%M%S")
-OUTPUT_PREFIX="${CHECKPOINT}_n${N_SAMPLES}_${TIMESTAMP}"
+OUTPUT_PREFIX="${SAVE_SUFFIX}_n${N_SAMPLES}_${TIMESTAMP}"
 LOG_FILE="$RESULT_DIR/${OUTPUT_PREFIX}.log"
 RUN_DIR="$RESULT_DIR/${OUTPUT_PREFIX}_run"
 

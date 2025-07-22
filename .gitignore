@@ -212,3 +212,4 @@ outputs/
 checkpoints/
 evaluation_results/
 single_test_results/
+.env

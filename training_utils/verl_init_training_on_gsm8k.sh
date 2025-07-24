@@ -19,8 +19,8 @@ echo "检测到 $GPU_COUNT 张GPU，设置 trainer.n_gpus_per_node=$GPU_COUNT"
 
 #    <7B: tensor_model_parallel_size=1
 # 7B-30B: tensor_model_parallel_size=2-4 
-export SGL_DISABLE_TP_MEMORY_INBALANCE_CHECK=True
-PYTHONUNBUFFERED=1 python3 -m verl.trainer.main_ppo \
+# export SGL_DISABLE_TP_MEMORY_INBALANCE_CHECK=True
+HYDRA_FULL_ERROR=1 PYTHONUNBUFFERED=1 python3 -m verl.trainer.main_ppo \
     data.train_files=$DATASET_DOWNLOAD_PATH/gsm8k/train.parquet \
     data.val_files=$DATASET_DOWNLOAD_PATH/gsm8k/test.parquet \
     data.train_batch_size=256 \

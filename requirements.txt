@@ -135,7 +135,7 @@ partial-json-parser==0.2.1.1.post6
 peft==0.16.0
 pexpect==4.9.0
 pillow==11.3.0
-pip @ file:///croot/pip_1746204010231/work
+# pip @ file:///croot/pip_1746204010231/work
 platformdirs==4.3.8
 pre-commit==4.2.0
 prometheus-client==0.22.1
@@ -218,7 +218,7 @@ urllib3==2.5.0
 uv==0.8.0
 uvicorn==0.35.0
 uvloop==0.21.0
--e file:///home/nfs06/chenyq/verl
+# -e file:///home/nfs06/chenyq/verl
 virtualenv==20.31.2
 vllm==0.9.2
 wandb==0.21.0
